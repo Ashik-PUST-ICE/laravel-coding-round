@@ -3,37 +3,40 @@
 namespace App\Http\Controllers;
 
 
-
 use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'title' => 'required|string',
-        ]);
 
-        $task = Task::create($validated);
+ public function taskStore(Request $request)
+ {
 
-        return response()->json($task, 201);
-    }
+     $validated = $request->validate([
+         'title' => 'required|string',
+     ]);
+     $task = Task::create($validated);
+     return response()->json($task, 201);
+ }
 
-    public function update(Request $request, $id)
-    {
-        $task = Task::findOrFail($id);
+ public function taskUpdate(Request $request, $id)
+ {
+     $validated = $request->validate([
+         'is_completed' => 'required|boolean',
+     ]);
 
-        $validated = $request->validate([
-            'is_completed' => 'required|boolean',
-        ]);
+     $task = Task::find($id);
 
-        $task->update($validated);
+     if (!$task) {
+         return response()->json(['message' => 'Task not found'], 404);
+     }
 
-        return response()->json($task);
-    }
+     $task->is_completed = $request->input('is_completed');
+     $task->save();
+     return response()->json($task);
+ }
 
-    public function pending()
+    public function taskPending()
     {
         $tasks = Task::where('is_completed', false)->get();
 

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function store(Request $request)
+    public function postStore(Request $request)
     {
         $validated = $request->validate([
             'title' => 'required|string',
@@ -21,12 +21,12 @@ class PostController extends Controller
         return response()->json($post, 201);
     }
 
-    public function index()
+    public function postIndex()
     {
         return response()->json(Post::all());
     }
 
-    public function show($id)
+    public function postShow($id)
     {
         $post = Post::findOrFail($id);
 
