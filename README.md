@@ -12,10 +12,7 @@
 
 ### Blog Post
 - POST /api/posts
- {
-  "title": "Test Post Title of ",
-  "content": "This is a test post content."
-}
+  
 - GET /api/posts
 - GET /api/posts/{id}
 
@@ -28,6 +25,8 @@
 - POST /api/tasks
 - PUT /api/tasks/{id}
 - GET /api/tasks/pending
+
+
 
   Coding test Api
 ﻿
