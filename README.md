@@ -34,24 +34,25 @@
 
 POST
 Create
-http://127.0.0.1:8000/api/posts
+/api/posts
 ﻿
 
 Body
 raw (json)
-json
+
 {
   "title": "Test Post Title of ",
   "content": "This is a test post content."
 }
+
 GET
 Get Post
-http://127.0.0.1:8000/api/posts/1
+/api/posts/1
 ﻿
 
 POST
 Register a User
-http://127.0.0.1:8000/api/register
+/api/register
 ﻿
 
 {
@@ -63,31 +64,29 @@ http://127.0.0.1:8000/api/register
 
 GET
 get user
-http://127.0.0.1:8000/api/users/1
+/api/users/1
 ﻿
 
 POST
 Add a Task
-http://127.0.0.1:8000/api/tasks
+/api/tasks
 ﻿
 
 Body
-raw (json)
-json
+
 {
     "title": "Complete Laravel API 33"
 }
 PUT
 Update Task
-http://127.0.0.1:8000/api/tasks/3
+/api/tasks/3
 ﻿
 
 Body
-raw (json)
-json
+
 {
     "is_completed": true
 }
 GET
 Get the TAsk
-http://127.0.0.1:8000/api/tasks/pending
+/api/tasks/pending
