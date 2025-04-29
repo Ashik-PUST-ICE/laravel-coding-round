@@ -23,7 +23,7 @@
 
 ### Task Management
 - POST /api/tasks
-- PUT /api/tasks/{id}
+- PATCH /api/tasks/{id}
 - GET /api/tasks/pending
 
 
@@ -76,7 +76,7 @@ Body
 {
     "title": "Complete Laravel API 33"
 }
-PUT
+PATCH
 Update Task
 /api/tasks/3
 ﻿
